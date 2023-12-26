@@ -1,0 +1,81 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><button class="btn btn-danger me-auto" routerLink="/login">Logout</button> </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+<!-- details added by the hr -->
+<div class="container m-1">
+  <h1>Employee details added by the admin</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>DOB</th>
+        <th>Phone</th>
+        <th>Profile pic</th>
+        <th>Blood Group</th>
+        <th>Gender</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empdata">
+
+        <th>{{emp.id}}</th>
+        <td>  {{emp.name}}</td>
+        <td>{{emp.role}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.dob}}</td>
+        <td>{{emp.phnumber}}</td>
+        <td>
+
+          <img [src]="emp.profilepic" height="50px"  width="70px">
+        </td>
+        <td>{{emp.bloodgroup}}</td>
+        <td>{{emp.gender}}</td>
+        <button class="btn btn-warning m-2 p-2" routerLink="/edit/{{emp.id}}">Edit</button>
+     
+      </tr>
+
+
+    </tbody>
+  </table>
+
+  <!-- leave status for employees -->
+  <h1>Leave approval status for Employees</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>EMPID</th>
+      <th>Reason</th>
+        <th>Leave Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.eid }}</td>
+       <td>{{employee.reason}}</td>
+        <td>{{ employee.leaveStatus }}</td>
+        <td>{{employee.startdate |date}}</td>
+        <td>{{employee.enddate |date}}</td>
+        
+       
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,47 @@
+<h4>Employee list table</h4>
+<table class="table">
+    <thead>
+      <tr>
+        <th >id</th>
+        <th >Name</th>
+        <th >Role</th>
+        <th >Email</th>
+        <th >Age</th>
+        <th >DOB</th>
+        <th >Phone</th>
+        <th >Profile pic</th>
+        <th >Blood Group</th>
+        <th >Gender</th>
+        <th >Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empdata">
+        
+        <th >{{emp.id}}</th>
+        <td>{{emp.name}}</td>
+        <td>{{emp.role}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.dob}}</td>
+        <td>{{emp.phnumber}}</td>
+        <td>
+
+          <img  [src]="emp.profilepic" height="50px"  width="70px" >
+        </td>
+        <td>{{emp.bloodgroup}}</td>
+        <td>{{emp.gender}}</td>
+        <td> <button class="btn btn-warning m-2 p-2"  routerLink="/edit/{{emp.id}}">Edit</button>
+          <button (click)="deleteemployee(emp.id)" class="btn btn-danger text-dark">Delete</button>
+        </td>
+
+        <td>
+          
+        </td>
+       
+      </tr>
+      
+      
+    </tbody>
+  </table>

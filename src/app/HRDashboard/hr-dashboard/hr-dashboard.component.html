@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: rgb(43, 220, 226);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">HR Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex" role="search">
+          <button class="btn btn-primary m-2" routerLink="/login">Logout</button>
+          <button class="btn btn-outline-success m-2" type="submit" routerLink="/add-employee">Add Employee</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- table for leave approval and rejection -->
+<h1>Leave approval of Employees</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>EMPID</th>
+      <th>Reason</th>
+        <th>Leave Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <!-- <th>Emp Name</th> -->
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.eid }}</td>
+       <td>{{employee.reason}}</td>
+        <td>{{ employee.leaveStatus }}</td>
+        <td>{{employee.startdate |date}}</td>
+        <td>{{employee.enddate |date}}</td>
+       
+        <td>
+          <button class="btn btn-success m-2" (click)="approveleave(employee.id)">Approve</button>
+          <button class="btn btn-danger m-2" (click)="rejectleave(employee.id)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- dougnut chart displaying the num of active and inactive employees -->
+  <div style="display: flex;">
+    <app-doughnutchart></app-doughnutchart>
+    <app-bar-chart></app-bar-chart>
+  </div>
+ 

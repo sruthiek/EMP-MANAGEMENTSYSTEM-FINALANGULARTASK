@@ -1,0 +1,87 @@
+<div class="container m-2">
+    <div class="row p-4">
+        <h1 class="text-left mb-2">Edit Employee</h1>
+        <!-- alert -->
+        <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success !!</strong> Employee Updated successfully..
+            <button (click)="removemessage()" type="button"  data-bs-dismiss="alert" aria-label="Close">X</button>
+          </div>
+        <div class="col-md-8">
+            <form [formGroup]="editemp"  (ngSubmit)="updateempdeails()">
+                
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="Employee name" name="name" formControlName="name">
+                </div>
+
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="Employee role" name="role" formControlName="role">
+                </div>
+
+                <div class="mb-2">
+                    <input type="email" class="form-control" placeholder="Employee email" name="email" formControlName="email">
+                </div>
+
+                <div class="mb-2">
+                    <input type="number" class="form-control" placeholder="Employee age" name="age" formControlName="age">
+                </div>
+
+                <div class="mb-2">
+                    <input type="date" class="form-control" placeholder="Date of birth" name="dob" formControlName="dob">
+                </div>
+
+                <div class="mb-2">
+                    <input type="number" class="form-control" placeholder="ph number" name="phone" formControlName="phnumber">
+                </div>
+
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="profile pic url" name="profilepic" formControlName="profilepic">
+                </div>
+
+                
+                    <div class="mb-2">
+                    <legend>Select Blood group:</legend>
+                    <label for="A+">A+</label>
+                    <input type="radio" name="bloodgroup" id="A+" value="A+" formControlName="bloodgroup"> &nbsp;
+
+                    <label for="A-">A-</label>
+                    <input type="radio" name="bloodgroup" id="A-" value="A-" formControlName="bloodgroup">&nbsp;
+
+                    <label for="B+">B+</label>
+                    <input type="radio" name="bloodgroup" id="B+" value="B+" formControlName="bloodgroup">&nbsp;
+
+                    <label for="B-">B-</label>
+                    <input type="radio" name="bloodgroup" id="B-" value="B-" formControlName="bloodgroup">&nbsp;
+
+                    <label for="AB-">AB-</label>
+                    <input type="radio" name="bloodgroup" id="AB-" value="AB-" formControlName="bloodgroup">&nbsp;
+
+                    <label for="AB+">AB+</label>
+                    <input type="radio" name="bloodgroup" id="AB+" value="AB+" formControlName="bloodgroup">&nbsp;
+
+                    <label for="O-">O-</label>
+                    <input type="radio" name="bloodgroup" id="O-" value="O-" formControlName="bloodgroup">&nbsp;
+
+                    <label for="O+">O+</label>
+                    <input type="radio" name="bloodgroup" id="O+" value="O+" formControlName="bloodgroup">&nbsp;
+                    <br><br>
+                </div>
+
+                <div class="mb-2">
+                    <legend>Choose your gender:</legend>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="male" value="male" formControlName="gender"> &nbsp;
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="female" value="female" formControlName="gender">&nbsp;
+                    <label for="others">Others</label>
+                    <input type="radio" name="gender" id="others" value="others" formControlName="gender"> <br><br>
+                </div>
+                
+                <div class="mb-2 ">
+                   <button class="btn btn-success m-1"  >Submit</button>
+                   <!-- <button class="btn btn-warning" routerLink="/admindashboard">Back to Admin Page</button> -->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

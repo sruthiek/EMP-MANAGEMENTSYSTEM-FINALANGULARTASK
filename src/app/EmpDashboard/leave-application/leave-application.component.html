@@ -1,0 +1,43 @@
+<mat-card class="c-card">
+    <mat-card-content class="heading">Leave Application</mat-card-content>
+
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Emp ID</mat-label>
+            <input matInput placeholder="Enter Emp ID" name="eid" [(ngModel)]="leave.eid" >
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Type of Leave</mat-label>
+            <input matInput placeholder="Type of leave" name="typeofleave" [(ngModel)]="leave.typeofleave">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Start date</mat-label>
+            <input matInput [matDatepicker]="picker" name="startdate" [(ngModel)]="leave.startdate">
+
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="picker1" name="enddate" [(ngModel)]="leave.enddate">
+
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field  appearance="outline" class="example-full-width">
+            <mat-label>Leave Reason</mat-label>
+            <textarea matInput placeholder="Reason for leave" name="reason" [(ngModel)]="leave.reason"></textarea>
+          </mat-form-field>
+
+    </form>
+
+    <div class="btn text-center">
+        <button mat-raised-button color="accent" (click)="apply()">Apply</button>
+    </div>
+</mat-card>

@@ -1,0 +1,41 @@
+{
+  "user": [
+    {
+      "name": "sreethukp",
+      "role": "tester",
+      "email": "sree@gmail.com",
+      "age": 26,
+      "dob": "1997-09-12",
+      "phnumber": 7902868287,
+      "profilepic": "https://cdn-icons-png.flaticon.com/128/456/456212.png",
+      "bloodgroup": "A+",
+      "gender": "female",
+      "id": 1
+    }
+  ],
+  "userlogindetails": [
+    {
+      "id": 1,
+      "username": "hr",
+      "password": "hrpass",
+      "role": "hr"
+    },
+    {
+      "id": 2,
+      "username": "employee",
+      "password": "employeepass",
+      "role": "employee"
+    }
+  ],
+  "posts": [
+    {
+      "eid": "1",
+      "typeofleave": "sick",
+      "startdate": "2023-12-04T18:30:00.000Z",
+      "enddate": "2023-12-16T18:30:00.000Z",
+      "reason": "accident",
+      "id": 1,
+      "leaveStatus": "Rejected"
+    }
+  ]
+}
