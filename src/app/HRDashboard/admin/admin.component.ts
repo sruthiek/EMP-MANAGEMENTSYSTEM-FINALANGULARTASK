@@ -9,7 +9,8 @@ export class AdminComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.showempdetails();
+    // component load ayi vermbo thene fisrt dashboard kanikkum The ngOnInit lifecycle method is called when the component is initialized. In this case, it sets the initial state by calling the showdashboard method.
+    this.showdashboard()
   }
 
 dashboard:boolean=false;

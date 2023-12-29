@@ -10,57 +10,60 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class DetailPageComponent implements OnInit {
 
-  // displayedColumns: string[] = ['Emp-ID', 'Type-of-leave', 'Start-date', 'End-date', 'Reason'];
-  dataSource !: MatTableDataSource<any>;
+  
 
+  // Declare an array to store employee leave  data
   employees!: any[];
 
-  // to pass emp data added by admin , create a property
+  // Create a property to store data added by an admin
   empdata: any = [];
 
   constructor(private service: ApiService, private epservice: EmployeeService) { }
 
   ngOnInit(): void {
-    // to get all leave details of employees
+
+    // Call the getEmployees method to fetch leave details of employees
     this.getEmployees();
 
-    this.displayleave()
-    // get all employees
+     
+
+    // Fetch all employees  using EmployeeService ie  get all employees adeed by hr
     this.epservice.getallemployee().subscribe((alldata) => {
       console.log(alldata);
-
-      // alldata is stored in empdata
+      // Store the retrieved employee data in the empdata property
       this.empdata = alldata;
 
     });
   }
 
-  displayleave() {
-    this.service.leaveview().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res);
-    })
-  }
+ 
 
 
 
 
 
-  // to get all leave details of employee
+
+  // Method to get all leave details of employees using ApiService
   getEmployees(): void {
     this.service.leaveview().subscribe(employees => {
-      this.employees = employees;
+       // Store the received leave details in the employees property
+     this.employees = employees;
     });
   }
-  // to approve leave
+
+  // Method to approve leave 
   approveleave(id: any) {
-    this.service.approveLeave(id).subscribe((res: any) => {
+    this.service.approveLeave(id).subscribe(() => {
+     
       this.getEmployees();
     })
   }
 
-  // reject leave
+
+  // Method to reject leave 
   rejectleave(id: any) {
     this.service.rejectLeave(id).subscribe(() => {
+      
       this.getEmployees();
     })
   }

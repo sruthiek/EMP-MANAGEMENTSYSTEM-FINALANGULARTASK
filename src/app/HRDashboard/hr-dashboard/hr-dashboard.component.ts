@@ -8,30 +8,35 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./hr-dashboard.component.scss']
 })
 export class HrDashboardComponent implements OnInit {
+  // Initializing an array to hold employee leave  data
   employees!: any[];
 
 constructor(private service: ApiService) { }
 
   ngOnInit(): void {
+    // Calling the getEmployees method when the component is initialized
     this.getEmployees();
   }
 
   // to get all leave details of employee
   getEmployees(): void {
     this.service.leaveview().subscribe(employees => {
+      // Assigning the retrieved  data to the 'employees' property
       this.employees = employees;
     });
   }
-  // to approve leave
+  //method  to approve leave
   approveleave(id: any) {
     this.service.approveLeave(id).subscribe((res) => {
+         // Refreshing the employee data after approval
       this.getEmployees();
     })
   }
 
-  // reject leave
+  //method to  reject leave
   rejectleave(id: any) {
     this.service.rejectLeave(id).subscribe(() => {
+       // Refreshing the employee data after rejection
       this.getEmployees();
     })
   }

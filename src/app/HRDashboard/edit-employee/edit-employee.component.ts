@@ -15,7 +15,7 @@ export class EditEmployeeComponent implements OnInit {
   ngOnInit(): void {
     // get   current value of id route parameter
     console.log(this.router.snapshot.params['id']);
-    // here in result we get the updated values
+    //It makes  service call getempbyid to fetch employee details by ID and initializes a form editemp with the retrieved data.
     this.service.getempbyid(this.router.snapshot.params['id']).subscribe((result: any) => {
       // console.log(result);
       this.editemp = new FormGroup({
@@ -34,7 +34,7 @@ export class EditEmployeeComponent implements OnInit {
 
   }
 
-
+// initializes  form group editemp with form controls
   editemp = new FormGroup({
     name: new FormControl(''),
     role: new FormControl(''),
@@ -52,7 +52,7 @@ export class EditEmployeeComponent implements OnInit {
 
 
   updateempdeails() {
-    // pass id and data
+    //  id and data
     this.service.updateemp(this.router.snapshot.params['id'], this.editemp.value).subscribe((res: any) => {
       // console.log(res);
 
@@ -61,7 +61,7 @@ export class EditEmployeeComponent implements OnInit {
     })
   }
 
-  // remove aler after success emp updation
+  //method to  remove alert after success emp updation
   removemessage() {
     this.message = false;
   }

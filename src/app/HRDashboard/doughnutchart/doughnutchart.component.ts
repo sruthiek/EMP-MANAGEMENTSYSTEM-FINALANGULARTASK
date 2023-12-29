@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Chart ,registerables} from 'node_modules/chart.js';
-import { EmployeeService } from 'src/app/services/employee.service';
+import { Chart, registerables } from 'node_modules/chart.js';
+
 Chart.register(...registerables);
 @Component({
   selector: 'app-doughnutchart',
@@ -10,23 +10,18 @@ Chart.register(...registerables);
 })
 export class DoughnutchartComponent implements OnInit {
 
-  // chart prpos
-  employees: any[] = [];
+
   doughnutChart: any;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor() { }
 
   ngOnInit(): void {
- 
-  this.employeeService.getallemployee().subscribe((data:any) => {
-    this.employees = data;
+
     this.createDoughnutChart();
-  });
-  
-  
+
   }
 
-   createDoughnutChart(): void {
+  createDoughnutChart(): void {
     this.doughnutChart = new Chart('doughnutChart', {
       type: 'doughnut',
       data: {

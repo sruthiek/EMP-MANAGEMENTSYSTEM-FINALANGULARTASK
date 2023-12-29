@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  // private apiUrl = 'http://localhost:3000/userlogindetails';
 
 
+  //  property to  holds  the currently logged-in user
   loggedInUser: any;
 
   login(username: string, password: string): boolean {
@@ -29,10 +29,11 @@ export class AuthService {
     return false;
   }
 
+  //method to return the currently logged-in user.
   getUser(): any {
     return this.loggedInUser;
   }
-
+  
   logout(): void {
     this.loggedInUser = null;
   }

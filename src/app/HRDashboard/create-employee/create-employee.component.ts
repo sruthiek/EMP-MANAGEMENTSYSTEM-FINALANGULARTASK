@@ -13,8 +13,9 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private service: EmployeeService) { }
 
  
-// create form group
+//  Reactive form named 'addemp' is initialized using the FormGroup class.
   addemp = new FormGroup({
+    // Each form control is initialized with an empty string ('') as the default value. 
     name: new FormControl(''),
     role: new FormControl(''),
     email: new FormControl(''),
@@ -27,7 +28,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   })
 
-  // to display alert 
+  // Variable to control the display of the alert message
   message:boolean=false;
 
 
@@ -41,16 +42,12 @@ export class CreateEmployeeComponent implements OnInit {
       console.log(result);
       // show alert when emp registered successfully...
       this.message=true;
-      //reset form
+      //Reset the form to clear the input fields
       this.addemp.reset({})
-
-
-    });
-
-
+     });
   }
 
-  // remove alert after success emp register
+  // Method to remove the alert message after success employee registration
   removemessage(){
     this.message=false;
   }

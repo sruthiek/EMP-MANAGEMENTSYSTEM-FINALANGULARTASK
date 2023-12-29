@@ -9,25 +9,26 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class EmployeeDetailsComponent implements OnInit {
 
   constructor(private service: EmployeeService) { }
-  // to pass data to html, create a property
+ // Property to store employee data retrieved from the service
   empdata: any = [];
 
   ngOnInit(): void {
-    // get all employees
+    // get all employees  using  getallemployee method from the employee service
     this.service.getallemployee().subscribe((alldata) => {
       console.log(alldata);
 
-      // alldata is stored in empdata
+      //Storing the retrieved data in the empdata property
       this.empdata = alldata;
 
     });
   }
 
+  // Method to delete an employee 
   deleteemployee(empid: any) {
-    
+    //  calls the deleteemployee method from the  employee service and subscribes to the response.
     this.service.deleteemployee(empid).subscribe((res) => {
       
-      // after delete operation refresh automatically
+      //   After delete operation, refresh the data by calling ngOnInit
       this.ngOnInit();
 
     })

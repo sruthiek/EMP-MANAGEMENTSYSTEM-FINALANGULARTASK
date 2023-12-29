@@ -28,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import { DoughnutchartComponent } from './HRDashboard/doughnutchart/doughnutchart.component';
 import { BarChartComponent } from './HRDashboard/bar-chart/bar-chart.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -62,7 +63,8 @@ import { BarChartComponent } from './HRDashboard/bar-chart/bar-chart.component';
     MatToolbarModule,
     MatTableModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
     
   ],
   providers: [],

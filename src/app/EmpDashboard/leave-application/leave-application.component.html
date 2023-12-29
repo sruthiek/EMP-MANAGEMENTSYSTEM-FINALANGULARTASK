@@ -8,10 +8,16 @@
             <input matInput placeholder="Enter Emp ID" name="eid" [(ngModel)]="leave.eid" >
         </mat-form-field>
 
+        
+
         <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Type of Leave</mat-label>
-            <input matInput placeholder="Type of leave" name="typeofleave" [(ngModel)]="leave.typeofleave">
-        </mat-form-field>
+            <mat-label>Type of leave</mat-label>
+            <mat-select [(ngModel)]="leave.typeofleave" name="typeofleave" required>
+              <mat-option value="sick">Sick</mat-option>
+              <mat-option value="annual">Annual</mat-option>
+              <mat-option value="parental">Parental</mat-option>
+            </mat-select>
+          </mat-form-field>
 
 
         <mat-form-field appearance="outline" class="example-full-width">
