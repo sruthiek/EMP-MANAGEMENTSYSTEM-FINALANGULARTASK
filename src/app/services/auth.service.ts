@@ -9,8 +9,9 @@ export class AuthService {
 
 
 
-  //  property to  holds  the currently logged-in user
+   // Property to hold the currently logged-in user
   loggedInUser: any;
+
 
   login(username: string, password: string): boolean {
     // Assuming API endpoint to authenticate user
@@ -18,14 +19,15 @@ export class AuthService {
       { id: 1, username: 'hr', password: 'hrpass', role: 'hr' },
       { id: 2, username: 'employee', password: 'employeepass', role: 'employee' }
     ];
-
+  // Find user in the  array based on username and password
     const user = userlogindetails.find(u => u.username === username && u.password === password);
 
+// If user is found, set the loggedInUser property and return true
     if (user) {
       this.loggedInUser = user;
       return true;
     }
-
+ // If user is not found, return false
     return false;
   }
 
@@ -34,6 +36,7 @@ export class AuthService {
     return this.loggedInUser;
   }
   
+    // Method to log out the user by resetting loggedInUser to null
   logout(): void {
     this.loggedInUser = null;
   }

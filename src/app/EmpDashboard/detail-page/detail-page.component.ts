@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -26,10 +25,10 @@ export class DetailPageComponent implements OnInit {
     this.getEmployees();
 
      
-
     // Fetch all employees  using EmployeeService ie  get all employees adeed by hr
     this.epservice.getallemployee().subscribe((alldata) => {
-      console.log(alldata);
+      // console.log(alldata);
+      
       // Store the retrieved employee data in the empdata property
       this.empdata = alldata;
 
@@ -37,12 +36,6 @@ export class DetailPageComponent implements OnInit {
   }
 
  
-
-
-
-
-
-
   // Method to get all leave details of employees using ApiService
   getEmployees(): void {
     this.service.leaveview().subscribe(employees => {
@@ -51,24 +44,6 @@ export class DetailPageComponent implements OnInit {
     });
   }
 
-  // Method to approve leave 
-  approveleave(id: any) {
-    this.service.approveLeave(id).subscribe(() => {
-     
-      this.getEmployees();
-    })
-  }
-
-
-  // Method to reject leave 
-  rejectleave(id: any) {
-    this.service.rejectLeave(id).subscribe(() => {
-      
-      this.getEmployees();
-    })
-  }
-
-
-
+  
 
 }

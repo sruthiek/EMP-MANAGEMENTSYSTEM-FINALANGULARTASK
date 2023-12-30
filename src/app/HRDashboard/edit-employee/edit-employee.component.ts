@@ -10,12 +10,14 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EditEmployeeComponent implements OnInit {
 
+  id: any;
+
   constructor(private service: EmployeeService,  private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     // get   current value of id route parameter
-    console.log(this.router.snapshot.params['id']);
-    //It makes  service call getempbyid to fetch employee details by ID and initializes a form editemp with the retrieved data.
+   this.id= this.router.snapshot.params['id'];
+    //It makes  service call getempbyid to fetch employee details by ID and initializes  form editemp with the retrieved data.
     this.service.getempbyid(this.router.snapshot.params['id']).subscribe((result: any) => {
       // console.log(result);
       this.editemp = new FormGroup({
@@ -33,6 +35,8 @@ export class EditEmployeeComponent implements OnInit {
     })
 
   }
+  
+  
 
 // initializes  form group editemp with form controls
   editemp = new FormGroup({
@@ -53,7 +57,7 @@ export class EditEmployeeComponent implements OnInit {
 
   updateempdeails() {
     //  id and data
-    this.service.updateemp(this.router.snapshot.params['id'], this.editemp.value).subscribe((res: any) => {
+    this.service.updateemp(this.id, this.editemp.value).subscribe((res: any) => {
       // console.log(res);
 
       // after successful updation show alert

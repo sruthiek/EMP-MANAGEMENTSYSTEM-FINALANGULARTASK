@@ -15,7 +15,7 @@ export class EmployeeDetailsComponent implements OnInit {
   ngOnInit(): void {
     // get all employees  using  getallemployee method from the employee service
     this.service.getallemployee().subscribe((alldata) => {
-      console.log(alldata);
+      // console.log(alldata);
 
       //Storing the retrieved data in the empdata property
       this.empdata = alldata;
